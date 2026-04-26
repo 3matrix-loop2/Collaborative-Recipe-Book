@@ -107,6 +107,7 @@ FRONTEND_URL=http://localhost:3000
 MAX_FILE_SIZE=5242880
 UPLOAD_PATH=./uploads
 ```
+> ⚠️ Do not commit `.env` file. Use `.env.example` instead.
 
 ### 3. Start Backend
 
@@ -117,9 +118,30 @@ npm run dev
 # Production
 npm start
 ```
+## 🌐 Live Demo
 
-Server starts at: `http://localhost:5000`
+Frontend: https://frabjous-daffodil-691603.netlify.app  
+Backend: https://recipe-backend-z4a6.onrender.com
+
+
+
+## 🔗 API Configuration
+
+- Local: `http://localhost:5000/api`
+- Production: `https://recipe-backend-z4a6.onrender.com/api`
+
+> Update API URLs in frontend before deployment.
+
+
+## 🖥 Server Info
+
+**Local Development:**
+Server starts at: `http://localhost:5000`  
 Health check: `http://localhost:5000/api/health`
+
+**Production:**
+Server URL: `https://recipe-backend-z4a6.onrender.com`  
+Health check: `https://recipe-backend-z4a6.onrender.com/api/health`
 
 ### 4. Serve Frontend
 
@@ -140,7 +162,12 @@ python3 -m http.server 3000
 
 Frontend at: `http://localhost:3000`
 
-> **Important:** The `API_BASE` in `js/auth.js`, `js/recipes.js`, and other JS files points to `http://localhost:5000/api`. If your backend runs on a different port, update these values.
+## 🔗 API Configuration
+
+- **Local:** `http://localhost:5000/api`
+- **Production:** `https://recipe-backend-z4a6.onrender.com/api`
+
+> Make sure to update API URLs in all frontend JS files before deploying.
 
 ### 5. Run Tests
 
@@ -212,6 +239,7 @@ npm test
    - `JWT_SECRET` → long random string
    - `FRONTEND_URL` → your Netlify/Vercel URL
    - `NODE_ENV` → `production`
+   - Make sure MongoDB Atlas allows access from `0.0.0.0/0`
 
 ### Frontend → Netlify
 
@@ -222,6 +250,7 @@ npm test
    const API_BASE = 'https://your-backend.onrender.com/api';
    ```
 4. Deploy
+
 
 ### Database → MongoDB Atlas
 
@@ -236,6 +265,11 @@ npm test
 6. Set this as `MONGODB_URI` in Render environment variables
 
 ---
+
+## 🧠 Notes
+
+- Username supports letters, numbers, spaces, and underscores
+- Images are stored using Multer and served from backend
 
 ## 🔒 Security Notes
 
