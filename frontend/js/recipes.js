@@ -1,7 +1,7 @@
 // js/recipes.js
 // Recipe CRUD, search, rating, commenting API helpers
 
-const RECIPE_API_BASE = 'http://localhost:5000/api';
+const RECIPE_API_BASE = 'https://recipe-backend-z4a6.onrender.com/api';
 
 const RecipeAPI = (() => {
   const h = (isForm = false) => {
