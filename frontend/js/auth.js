@@ -1,7 +1,7 @@
 // js/auth.js
 // Manages authentication state, login/logout, token storage
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://recipe-backend-z4a6.onrender.com/api';
 
 const Auth = (() => {
   let currentUser = null;

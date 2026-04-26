@@ -13,7 +13,7 @@ const registerValidation = [
     .trim()
     .isLength({ min: 3, max: 30 })
     .withMessage('Username must be 3–30 characters')
-    .matches(/^[a-zA-Z0-9_]+$/)
+    .matches(/^[a-zA-Z0-9 ]+$/)
     .withMessage('Username can only contain letters, numbers, underscores'),
   body('email')
     .isEmail()

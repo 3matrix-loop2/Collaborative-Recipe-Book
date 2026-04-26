@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Load profile
   try {
-    const API_BASE = 'http://localhost:5000/api';
+    const API_BASE = 'https://recipe-backend-z4a6.onrender.com/api';
     const token = Auth.getToken();
     const headers = token ? { Authorization: `Bearer ${token}` } : {};
 

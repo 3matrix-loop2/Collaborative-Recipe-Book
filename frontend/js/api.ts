@@ -1,7 +1,7 @@
 // js/api.ts
 // Centralized API service for all backend communication
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://recipe-backend-z4a6.onrender.com/api';
 
 // ==================== TYPES ====================
 

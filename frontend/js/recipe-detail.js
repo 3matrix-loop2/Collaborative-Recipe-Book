@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // ── Socket.IO real-time ───────────────────────────────
   let socket;
   try {
-    socket = io('http://localhost:5000');
+   socket = io('https://recipe-backend-z4a6.onrender.com');
     socket.emit('join:recipe', recipeId);
 
     socket.on('recipe:rated', (data) => {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Hero image
     if (r.image) {
       const img = document.getElementById('recipeHeroImg');
-      img.src = `http://localhost:5000${r.image}`;
+      img.src = `https://recipe-backend-z4a6.onrender.com${r.image}`;
       img.alt = r.title;
       img.style.display = 'block';
       img.onerror = () => img.style.display = 'none';

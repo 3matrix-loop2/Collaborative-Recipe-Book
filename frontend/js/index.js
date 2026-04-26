@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Real-time Updates (Socket.IO) ─────────────────────
   if (window.io) {
-    const socket = io('http://localhost:5000');
+    const socket = io('https://recipe-backend-z4a6.onrender.com');
     socket.on('recipe:created', () => {
       if (currentPage === 1 && !isSearchMode) {
         Utils.showToast('A new recipe was just added! 🍽', 'info');
