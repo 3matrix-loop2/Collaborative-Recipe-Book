@@ -62,14 +62,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.title = `${r.title} — RecipeBook`;
 
     // Hero image
-    if (r.image) {
-      const img = document.getElementById('recipeHeroImg');
-      img.src = `https://recipe-backend-z4a6.onrender.com${r.image}`;
-      img.alt = r.title;
-      img.style.display = 'block';
-      img.onerror = () => img.style.display = 'none';
-    }
-
+    const hero = document.getElementById('recipeHero');if (r.image) {
+  const img = document.getElementById('recipeHeroImg');
+  img.src = r.image + '?t=' + Date.now();
+  img.alt = r.title || 'Recipe image';
+  img.style.display = 'block';
+} else {
+  document.getElementById('recipeHeroImg').style.display = 'none';
+}
     // Category & difficulty
     const catColors = {
       Veg:'#4caf50','Non-Veg':'#f44336',Vegan:'#8bc34a',

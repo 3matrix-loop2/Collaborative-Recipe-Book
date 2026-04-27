@@ -80,10 +80,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // Existing image
       if (r.image) {
-        imagePreview.src = `https://recipe-backend-z4a6.onrender.com${r.image}`;
-        imagePreview.style.display = 'block';
-        uploadPlaceholder.style.display = 'none';
-      }
+  imagePreview.src = r.image;
+  imagePreview.style.display = 'block';
+  uploadPlaceholder.style.display = 'none';
+}
 
     } catch (err) {
       Utils.showToast('Failed to load recipe for editing', 'error');

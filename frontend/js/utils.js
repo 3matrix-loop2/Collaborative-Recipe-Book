@@ -108,8 +108,8 @@ const Utils = (() => {
     card.dataset.id = recipe._id;
 
     const imgSrc = recipe.image
-    ? `https://recipe-backend-z4a6.onrender.com${recipe.image}`
-      : `https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=250&fit=crop`;
+  ? recipe.image
+  : `https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=250&fit=crop`;
 
     const categoryColors = {
       Veg: '#4caf50', 'Non-Veg': '#f44336', Vegan: '#8bc34a',
