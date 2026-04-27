@@ -4,8 +4,7 @@
 const Recipe = require('../models/Recipe');
 const User = require('../models/User');
 const { validationResult } = require('express-validator');
-const fs = require('fs');
-const path = require('path');
+
 
 /**
  * @route   GET /api/recipes
@@ -186,7 +185,7 @@ const createRecipe = async (req, res, next) => {
 
     // Handle uploaded image
     if (req.file) {
-      recipeData.image = `/uploads/${req.file.filename}`;
+      recipeData.image = req.file.path;
     }
 
     const recipe = await Recipe.create(recipeData);
@@ -270,13 +269,8 @@ const updateRecipe = async (req, res, next) => {
 
     // Handle new image upload
     if (req.file) {
-      // Delete old image if exists
-      if (recipe.image) {
-        const oldPath = path.join(__dirname, '..', recipe.image);
-        if (fs.existsSync(oldPath)) fs.unlinkSync(oldPath);
-      }
-      updates.image = `/uploads/${req.file.filename}`;
-    }
+  updates.image = req.file.path;
+  }
 
     const updated = await Recipe.findByIdAndUpdate(
       req.params.id,
@@ -318,11 +312,7 @@ const deleteRecipe = async (req, res, next) => {
       });
     }
 
-    // Delete associated image
-    if (recipe.image) {
-      const imgPath = path.join(__dirname, '..', recipe.image);
-      if (fs.existsSync(imgPath)) fs.unlinkSync(imgPath);
-    }
+  
 
     await recipe.deleteOne();
 
